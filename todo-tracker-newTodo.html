@@ -7,6 +7,13 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <!-- Include jQuery -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+        <!-- Include Date Range Picker -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     </head>
 
     <body>
@@ -18,7 +25,9 @@
             <a href="todo-tracker-newTodo.html" class="btn btn-success btn-lg" role="button">New TODO</a>
         </div>
     </body>
+
     <br>
+    
     <body>
         <div class="container">
             <form role="form">
@@ -27,17 +36,19 @@
                     <textarea class="form-control" rows="2" id="comment" minlength="1" maxlength="160" placeholder="Max 160 characters"></textarea>
                     <br>
                     <label class="control-label " for="date">Date</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                               <span class="glyphicon glyphicon-calendar"></span>
-                            </div>
-                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
                         </div>
-
+                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text">
+                    </div>
                     <br>
                     <br>
-                    <label for="replyNumber">Progress:</label>
-                    <input type="number" id="replyNumber" min="0" max="100" step="1" data-bind="value:replyNumber">
+                    <div id="slider">
+                        <label for="rangeinput">Progress:</label>
+                        <input class="bar" type="range" id="rangeinput" value="0" onchange="rangevalue.value=value" >
+                        <output id="rangevalue">0</output>
+                    </div>
                     <br>
                     <br>
                     <a href="todo-tracker-newTodo.html" class="btn btn-success btn-lg" role="button">Add</a>
@@ -46,25 +57,19 @@
             <a href="todo-tracker-impressum.html" class="btn btn-default btn-lg" role="button">Impressum</a>
         </div>
     </body>
-    
-    <!-- Include jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Include Date Range Picker -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-    <script>
-        $(document).ready(function(){
-            var date_input=$('input[name="date"]'); //our date input has the name "date"
-            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-            date_input.datepicker({
-                format: 'mm/dd/yyyy',
-                container: container,
-                todayHighlight: true,
-                autoclose: true,
+    <footer>
+        <script>
+            $(document).ready(function(){
+                var date_input=$('input[name="date"]'); //our date input has the name "date"
+                var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+                date_input.datepicker({
+                    format: 'mm/dd/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                })
             })
-        })
-    </script>
-
+        </script>
+    </footer>
 </html>
