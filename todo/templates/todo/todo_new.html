@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Titel</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+{% extends 'todo/base.html' %}
 
-        <!-- Include jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-        <!-- Include Date Range Picker -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    </head>
-
-    <body>
-        <div class="container">
-            <h1 class="text-center">ToDo Tracker</h1><br>
-        </div>
-        <div class="container">
-            <a href="todo-tracker-todoList.html" class="btn btn-primary btn-lg" role="button">TODO-List</a>
-            <a href="todo-tracker-newTodo.html" class="btn btn-success btn-lg" role="button">New TODO</a>
-        </div>
-    </body>
-
-    <br>
-
+{% block content %}
     <body>
         <div class="container">
             <form role="form">
@@ -51,10 +24,10 @@
                     </div>
                     <br>
                     <br>
-                    <a href="todo-tracker-todoList.html" class="btn btn-success btn-lg" role="button">Add</a>
+                    <a href="{% url 'todo_list' %}" class="btn btn-success btn-lg" role="button">Add</a>
                 </div>
             </form>
-            <a href="todo-tracker-impressum.html" class="btn btn-default btn-lg" role="button">Impressum</a>
+            <a href="{% url 'todo_impressum' %}" class="btn btn-default btn-lg" role="button">Impressum</a>
         </div>
     </body>
 
@@ -72,4 +45,4 @@
             })
         </script>
     </footer>
-</html>
+{% endblock %}
