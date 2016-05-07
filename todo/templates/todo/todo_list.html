@@ -20,10 +20,10 @@
                         <th>{{ todo.deadline }}</th>
                         <th>{{ todo.progress }}</th>
                         <th>
-                            <a class="btn btn-warning btn-sm" title="edit">
+                            <a href="{% url 'todo_edit' pk=todo.pk %}" class="btn btn-warning btn-sm" title="edit">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
-                            <a class="btn btn-danger btn-sm" title="delete">
+                            <a href="{% url 'todo_delete' pk=todo.pk %}" class="btn btn-danger btn-sm" title="delete">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </a>
                         </th>
