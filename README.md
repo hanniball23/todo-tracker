@@ -2,6 +2,7 @@
 
 Instructions:
 
+- you need python3
 - clone repository to your machine
 - change path to directory
 - create virtual environment with: $ python3 -m venv myvenv
