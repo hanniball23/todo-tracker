@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
+import datetime
 
 # Create your views here.
 def todo_list(request):
@@ -16,7 +17,8 @@ def todo_new(request):
 			todo.save()
 			return redirect('todo_list')
 	else:
-		form = PostForm()
+		form = PostForm(initial={'deadline':datetime.datetime.now()})
+
 	return render(request, 'todo/todo_edit.html', {'form': form})
 
 def todo_edit(request, pk):
