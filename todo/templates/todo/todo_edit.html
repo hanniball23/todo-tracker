@@ -1,0 +1,63 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <body>
+        <div class="container">
+        	<div class="panel panel-default">
+		        <div class="panel-heading"> Add new task </div>
+
+		        <!-- Body of Inputs -->
+		        <div class="panel-body">
+
+		          	<form method="POST" class="todo-form" role="form">{%csrf_token%}
+		            	<!-- Input Task textarea -->
+		            	<div class="form-group">
+		              		<label for="task">Task:</label>
+		              		<textarea name="text" class="form-control" rows="2" id="text" style="resize: vertical">{{form.text.value}}</textarea>
+		            	</div>
+
+		            	<!-- Input date form -->
+		            	<div class="row">
+		              		<div class='col-sm-4'>
+		                  		<div class="form-group">
+		                      		<label for="date">Date:</label>
+		                      		<div class='input-group date' id='deadline'>
+		                          		{{form.deadline}}
+		                      		</div>
+		                  		</div>
+		              		</div>
+		              		<script>
+							  	$(function() {
+							    	$( ".datepicker" ).datepicker({
+							      	changeMonth: true,
+							      	changeYear: true,
+							      	format: 'yyyy-mm-dd',
+							      	todayHighlight: true,
+									autoclose: true,
+							      	// You can put more options here.
+
+							    	});
+							  	});
+						  	</script>
+		            	</div>
+
+		            	<!-- Input Slider done -->
+		            	<div class="form-group">
+		              		<div id="progress">
+		                		<label for="rangeinput">Progress:</label>
+		                		<input class="bar" type="range" id="rangeinput" name="progress" value="{{form.progress.value}}" onchange="rangevalue.value=value" >
+		                		<output id="rangevalue">{{form.progress.value}}</output>
+		              		</div>
+		            	</div>
+
+		            	<!-- Add button -->
+		            	<div class="form-group">
+		              		<button type="submit" class="btn btn-default">Save</button>
+		            	</div>
+		          	</form>
+
+		        </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
